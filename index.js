@@ -22,7 +22,8 @@ function addMovie(event) {
 
 function deleteMovie(event) {
     event.target.parentNode.remove()
-    message.textContent = 'Movie Deleted'
+    message.textContent = `${event.target.parentNode.textContent .slice(0, -1)} Deleted`
+    revealMessage()
 } 
 
 const button = document.querySelector("button");
@@ -32,9 +33,19 @@ button.addEventListener('click', addMovie);
 
 function crossOffMovie(event) {
     event.target.classList.toggle('checked')
-    if (event.target.classList.contains('checked')) {
-        message.textContent = 'Movie Watched!'
-    } else {
-        message.textContent = 'Movie Added Back!'
+        if (event.target.classList.contains('checked')) {
+            message.textContent = `${event.target.textContent} Watched!`
+        } else {
+            message.textContent = `${event.target.textContent} Movie Added Back!`
     }
+    // test ternary operator because my tutor wanted me to
+        // message.textContent = (event.target.classList.contains('checked')) ? `${event.target.textContent} Watched!` : `${event.target.textContent} Movie Added Back!`;
+    revealMessage()
+}
+
+function revealMessage() {
+    message.classList.remove('hide')
+    setTimeout(function(){
+        message.classList.add('hide')
+    }, 1000)
 }

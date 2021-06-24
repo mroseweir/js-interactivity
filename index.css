@@ -37,6 +37,8 @@ ul {
 
 li {
     cursor: pointer;
+    text-align: center;
+    list-style: none;
 }
   
 .checked {
@@ -58,3 +60,4 @@ button {
     margin-left: 20px;
     vertical-align: middle;
 }
+
